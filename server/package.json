@@ -12,9 +12,9 @@
     "author": "moshang",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/moshang-xc/web-server.git"
+        "url": "git+https://github.com/Ex-Caliburn/web-server.git"
     },
-    "homepage": "https://github.com/moshang-xc/web-server#readme",
+    "homepage": "https://github.com/Ex-Caliburn/web-server#readme",
     "license": "ISC",
     "dependencies": {
         "body-parser": "^1.18.2",
