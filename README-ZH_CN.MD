@@ -4,7 +4,7 @@
 
 如果该程序对你有帮助😎😎😎，希望给个⭐**star**⭐喔。😘😘😘😍🥰🎉🎈🎃
 
-> 立即体验一下： [https://moshang-xc.github.io/lottery/](https://moshang-xc.github.io/lottery/)
+> 立即体验一下： [https://Ex-Caliburn.github.io/lottery/](https://Ex-Caliburn.github.io/lottery/)
 
 ## 技术
 
@@ -24,18 +24,18 @@
 
 ## 预览
 
-![lottery.gif](https://raw.githubusercontent.com/moshang-xc/blog/master/share/lottery.gif)
+![lottery.gif](https://raw.githubusercontent.com/Ex-Caliburn/blog/master/share/lottery.gif)
 
-![index.jpg](https://raw.githubusercontent.com/moshang-xc/blog/master/share/index.jpg)
+![index.jpg](https://raw.githubusercontent.com/Ex-Caliburn/blog/master/share/index.jpg)
 
-![start.jpg](https://raw.githubusercontent.com/moshang-xc/blog/master/share/start.jpg)
+![start.jpg](https://raw.githubusercontent.com/Ex-Caliburn/blog/master/share/start.jpg)
 
-![end.jpg](https://raw.githubusercontent.com/moshang-xc/blog/master/share/end.jpg)
+![end.jpg](https://raw.githubusercontent.com/Ex-Caliburn/blog/master/share/end.jpg)
 
 ## 安装
 
 ```
-git clone https://github.com/moshang-xc/lottery.git
+git clone https://github.com/Ex-Caliburn/lottery.git
 
 cd lottery
 
@@ -145,7 +145,7 @@ const EACH_COUNT = [1, 1, 5];
 该标识用于显示在抽奖卡片上。
 
 ```js
-const COMPANY = "MoShang";
+const COMPANY = "Ex-Caliburn";
 ```
 
 

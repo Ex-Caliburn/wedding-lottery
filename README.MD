@@ -3,9 +3,9 @@
 Annual dinner lottery program, 3D sphere raffle, support for configuration of prize information, import participants information by `Excel`, and export lottery results by `Excel`
 If programm is helpful for you😎😎😎, it will be greatful to comment us with⭐**star**⭐ 😘😘😘😍🥰🎉🎈🎃
 
-[点击跳转至中文使用文档](https://github.com/moshang-xc/lottery/blob/master/README-ZH_CN.MD)
+[点击跳转至中文使用文档](https://github.com/Ex-Caliburn/lottery/blob/master/README-ZH_CN.MD)
 
-> Try it now:  [https://moshang-xc.github.io/lottery/](https://moshang-xc.github.io/lottery/)
+> Try it now:  [https://Ex-Caliburn.github.io/lottery/](https://Ex-Caliburn.github.io/lottery/)
 
 ## Technology Stack
 
@@ -25,19 +25,19 @@ Web Page: Three.js, References to the official 3D example of `Three.js`
 
 ## Preview
 
-> Try it now:  [https://moshang-xc.github.io/lottery/](https://moshang-xc.github.io/lottery/)
+> Try it now:  [https://Ex-Caliburn.github.io/lottery/](https://Ex-Caliburn.github.io/lottery/)
 
-![lottery.gif](https://raw.githubusercontent.com/moshang-xc/blog/master/share/lottery.gif)
+![lottery.gif](https://raw.githubusercontent.com/Ex-Caliburn/blog/master/share/lottery.gif)
 
-![index.jpg](https://raw.githubusercontent.com/moshang-xc/blog/master/share/index.jpg)
+![index.jpg](https://raw.githubusercontent.com/Ex-Caliburn/blog/master/share/index.jpg)
 
-![start.jpg](https://raw.githubusercontent.com/moshang-xc/blog/master/share/start.jpg)
+![start.jpg](https://raw.githubusercontent.com/Ex-Caliburn/blog/master/share/start.jpg)
 
-![end.jpg](https://raw.githubusercontent.com/moshang-xc/blog/master/share/end.jpg)
+![end.jpg](https://raw.githubusercontent.com/Ex-Caliburn/blog/master/share/end.jpg)
 
 ## Install
 ```
-git clone https://github.com/moshang-xc/lottery.git
+git clone https://github.com/Ex-Caliburn/lottery.git
 
 cd lottery
 
@@ -143,7 +143,7 @@ Configuration above means the order of the number of prizes to be drawn at one t
 This identification is used to display on the lottery card. 
 
 ```js
-const COMPANY = "MoShang";
+const COMPANY = "Ex-Caliburn";
 ```
 
 
