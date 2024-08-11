@@ -16,9 +16,10 @@ const {
 
 let app = express(),
   router = express.Router(),
-  cwd = process.cwd(),
-  dataBath = __dirname,
-  port = 8090,
+  cwd = "/web/wedding-lottery/product/dist",
+	// dataBath = __dirname,
+	  dataBath = "/web/wedding-lottery/server",
+  port = 8888,
   curData = {},
   luckyData = {},
   errorData = [],
@@ -264,10 +265,12 @@ module.exports = {
     }
 
     let server = app.listen(port, () => {
-      let host = server.address().address;
+      // let host = server.address().address;
       let port = server.address().port;
-      global.console.log(`lottery server listenig at http://${host}:${port}`);
-      openBrowser && opn(`http://127.0.0.1:${port}`);
+      let host = "127.0.0.1";
+ 
+     global.console.log(`lottery server listenig at http://${host}:${port}`);
+     // openBrowser && opn(`http://127.0.0.1:${port}`);
     });
   }
 };
