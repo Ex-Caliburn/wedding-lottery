@@ -4,6 +4,9 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const chokidar = require("chokidar");
 const cfg = require("./config");
+const getAccessToken = require("./api/accessToken");
+const get_jsapi_ticket = require("./api/jsapiTicket");
+const getSign = require("./api/getSign");
 
 const {
   loadXML,
@@ -19,12 +22,15 @@ let app = express(),
   cwd = "/web/wedding-lottery/product/dist",
   // dataBath = __dirname,
   dataBath = "/web/wedding-lottery/server",
+  // dataBath = "/Users/lijiye/work/lottery/lottery/server", // 本地 test
   port = 8888,
   curData = {},
   luckyData = {},
   errorData = [],
   defaultType = cfg.prizes[0]["type"],
   defaultPage = `default data`;
+
+require("run-middleware")(app);
 
 //这里指定参数使用 json 格式
 app.use(
@@ -72,6 +78,38 @@ router.post("/getTempData", (req, res, next) => {
     cfgData: cfg,
     leftUsers: curData.leftUsers,
     luckyData: luckyData,
+  });
+});
+
+// accessToken 获取token
+router.get("/getAccessToken", (req, res) => {
+  console.log("getAccessToken1");
+  getAccessToken(res);
+});
+
+// 获取 jsapi_ticket 临时票据
+router.get("/getTicket", (req, res) => {
+  console.log("getTicket1");
+  app.runMiddleware("/getAccessToken", function (code, body, headers) {
+    console.log("getAccessToken2");
+    const result = JSON.parse(body);
+    console.log("User token:", result.access_token);
+    get_jsapi_ticket(result.access_token, res);
+  });
+});
+
+app.get("/sign", (req, res) => {
+  const params = {};
+  console.log(req.query);
+  params.url = req.query.url;
+  /***
+   * runMiddleware 请求别的 endPoint 获取 jsapi_ticket
+   */
+  app.runMiddleware("/getTicket", function (code, body, headers) {
+    const result = JSON.parse(body);
+    console.log("User ticket:", result.ticket);
+    params.ticket = result.ticket;
+    getSign(params, res);
   });
 });
 
@@ -209,6 +247,7 @@ function loadData() {
   let cfgData = {};
 
   // curData.users = loadXML(path.join(cwd, "data/users.xlsx"));
+  console.log(path.join(dataBath, "data/users.xlsx"));
   curData.users = loadXML(path.join(dataBath, "data/users.xlsx"));
   // 重新洗牌
   shuffle(curData.users);

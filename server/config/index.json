@@ -1,0 +1,7 @@
+{
+    "token": "bei________56",
+    "appid": "wxd1835fd3a94514d1",
+    "appsecret": "3c0a09e5c430b9477706fa0a27012f6a",
+    "getJsapiTicket": "https://api.weixin.qq.com/cgi-bin/ticket/getticket?type=jsapi&access_token=",
+    "getAccessToken": "https://api.weixin.qq.com/cgi-bin/token"
+}
