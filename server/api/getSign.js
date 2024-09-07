@@ -75,7 +75,7 @@ module.exports = getSign = (params, res) => {
 
   if (params.signature) {
     console.log("来自微信的signature---生成", params.signature, ret.signature);
-    res.send(params);
+    res.send(params.echostr);
     return
   }
   ret.appId = config.appid;
