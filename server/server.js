@@ -99,9 +99,10 @@ router.get("/api/getTicket", (req, res) => {
 });
 
 router.get("/api/sign", (req, res) => {
-  const params = {};
+  const params = {
+    ...req.query
+  };
   console.log(req.query);
-  params.url = req.query.url;
   /***
    * runMiddleware 请求别的 endPoint 获取 jsapi_ticket
    */
