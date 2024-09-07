@@ -15,7 +15,7 @@ Server: Express + Node
 
 Web Page: Three.js, References to the official 3D example of `Three.js`
 
-## Function Description:
+## Function Description
 
 1. The result can ben save and downloaded to excel synchronously🎉
 2. The winner will not participate in the drawing, and the drawing person can be drawn again if he/she not on site🎁
@@ -36,6 +36,7 @@ Web Page: Three.js, References to the official 3D example of `Three.js`
 ![end.jpg](https://raw.githubusercontent.com/Ex-Caliburn/blog/master/share/end.jpg)
 
 ## Install
+
 ```
 git clone https://github.com/Ex-Caliburn/lottery.git
 
@@ -61,6 +62,7 @@ npm run dev
 ```
 
 ## Directory Structure
+
 ```
 Lottery
 ├── product
@@ -84,10 +86,13 @@ Lottery
 > 5. config is Profile for prize information
 
 ## Configuration Information
+
 ### Lottery personnel list information configuration
+
 The lottery list information is in the **`server/data/user.xlsx`** file, information could only fill in base on the format, file name and title are not able to revise
 
 ### Prize information configuration
+
 Prize information is filled in the **server/config.js** file, and the file name cannot be modified.
 
 **The configuration of the prizes is described as follows:**
@@ -99,7 +104,6 @@ Prize information is filled in the **server/config.js** file, and the file name 
 | text  | String |  Prizes name                                     |
 | title | String | Prizes description                                              |
 | img   | String | Image URL of the prize, image is under**img** catalog                |
-
 
 ```js
 // Prize information, the first item is reserved and cannot be modified. Other items can be modified as required
@@ -140,12 +144,11 @@ Configuration above means the order of the number of prizes to be drawn at one t
 
 ### Enterprise Identity Configuration
 
-This identification is used to display on the lottery card. 
+This identification is used to display on the lottery card.
 
 ```js
 const COMPANY = "Ex-Caliburn";
 ```
-
 
 ## Docker Deployment plan
 
@@ -173,7 +176,7 @@ Before you use the Docker to deploy the project, you need to ensure you have dow
    ```
 
    It will use Dockerfile to set up the Docker mirror image named `lottery:[TAG]`. If no tag is specified, the 'latest' tag is used by default
-   
+
 4. Execute the following command to run the local container:
 
    ```
@@ -189,7 +192,7 @@ Please be pay attention that all applicaiton in the container will monitor port 
    ./tagpush.sh [TAG]
    ```
 
-   It will tag the Docker mirror image and push it to the remote Docker repository, please build up your repo at https://hub.docker.com/ if you want to us Docker official hub.
+   It will tag the Docker mirror image and push it to the remote Docker repository, please build up your repo at <https://hub.docker.com/> if you want to us Docker official hub.
 
 6. Ensure it has a file named `docker-compose.yml` and add below information:
 
@@ -222,7 +225,6 @@ docker-compose up -d
 ```
 
 This will start a Docker Compose stack and deploy the project into it. Note that port 8888 and port 443 of the container are mapped to port 8888 and port 443 on the server. If you wish to use a different port, please change the `docker-compose.yml` file accordingly.
-
 
 ## License
 
