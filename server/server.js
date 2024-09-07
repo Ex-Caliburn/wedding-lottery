@@ -82,15 +82,15 @@ router.post("/getTempData", (req, res, next) => {
 });
 
 // accessToken 获取token
-router.get("/getAccessToken", (req, res) => {
+router.get("/api/getAccessToken", (req, res) => {
   console.log("getAccessToken1");
   getAccessToken(res);
 });
 
 // 获取 jsapi_ticket 临时票据
-router.get("/getTicket", (req, res) => {
+router.get("/api/getTicket", (req, res) => {
   console.log("getTicket1");
-  app.runMiddleware("/getAccessToken", function (code, body, headers) {
+  app.runMiddleware("/api/getAccessToken", function (code, body, headers) {
     console.log("getAccessToken2");
     const result = JSON.parse(body);
     console.log("User token:", result.access_token);
@@ -177,7 +177,7 @@ router.post("/errorData", (req, res, next) => {
 // 保存数据到excel中去
 router.post("/export", (req, res, next) => {
   let type = [1, 2, 3, 4, 5, defaultType],
-    outData = [["工号", "姓名", "部门"]];
+    outData = [["编号", "姓名"]];
   cfg.prizes.forEach((item) => {
     outData.push([item.text]);
     outData = outData.concat(luckyData[item.type] || []);
