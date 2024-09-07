@@ -54,7 +54,19 @@ function raw(args) {
   return string;
 }
 
+// https://developers.weixin.qq.com/apiExplorer?type=messagePush
+// https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/JS-SDK.html#62
 module.exports = getSign = (params, res) => {
+  /**
+   * 签名算法
+   * 签名生成规则如下：
+   * 参与签名的字段包括noncestr（ 随机字符串）,
+   * 有效的jsapi_ticket, timestamp（ 时间戳）,
+   * url（ 当前网页的URL， 不包含# 及其后面部分）。
+   * 对所有待签名参数按照字段名的ASCII 码从小到大排序（ 字典序） 后，
+   *  使用URL键值对的格式（ 即key1 = value1 & key2 = value2…） 拼接成字符串string1。
+   * 这里需要注意的是所有参数名均为小写字符。 对string1作sha1加密， 字段名和字段值都采用原始值， 不进行URL 转义。
+   */
   var ret = {
     jsapi_ticket: params.ticket,
     nonceStr: createNonceStr(),
@@ -64,20 +76,22 @@ module.exports = getSign = (params, res) => {
 
   console.log(params, ret);
 
-  var oriArray = new Array();
-  oriArray[0] = params.nonceStr;
-  oriArray[1] = params.timestamp;
-  oriArray[2] = params.ticket;
-  oriArray.sort();
-
-  var original = oriArray.join("");
-  ret.signature = sha1(original);
-
   if (params.signature) {
+    var oriArray = new Array();
+    oriArray[0] = params.nonce;
+    oriArray[1] = params.timestamp;
+    oriArray[2] = params.ticket;
+    oriArray.sort();
+
+    var original = oriArray.join("");
+    ret.signature = sha1(original);
     console.log("来自微信的signature---生成", params.signature, ret.signature);
     res.send(params.echostr);
-    return
+    return;
   }
+
+  var string = raw(ret);
+  ret.signature = sha1(string);
   ret.appId = config.appid;
   console.log("ret", ret);
   res.send(ret);
