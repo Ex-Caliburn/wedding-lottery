@@ -80,7 +80,7 @@ module.exports = getSign = (params, res) => {
     var oriArray = new Array();
     oriArray[0] = params.nonce;
     oriArray[1] = params.timestamp;
-    oriArray[2] = params.ticket;
+    oriArray[2] = config.token;
     oriArray.sort();
 
     var original = oriArray.join("");
