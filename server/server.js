@@ -98,7 +98,7 @@ router.get("/api/getTicket", (req, res) => {
   });
 });
 
-app.get("/sign", (req, res) => {
+router.get("/api/sign", (req, res) => {
   const params = {};
   console.log(req.query);
   params.url = req.query.url;
@@ -284,7 +284,7 @@ function getLeftUsers() {
   curData.leftUsers = leftUsers;
 }
 
-loadData();
+// loadData();
 
 module.exports = {
   run: function (devPort, noOpen) {
