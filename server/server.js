@@ -105,7 +105,7 @@ router.get("/api/sign", (req, res) => {
   /***
    * runMiddleware 请求别的 endPoint 获取 jsapi_ticket
    */
-  app.runMiddleware("/getTicket", function (code, body, headers) {
+  app.runMiddleware("/api/getTicket", function (code, body, headers) {
     const result = JSON.parse(body);
     console.log("User ticket:", result.ticket);
     params.ticket = result.ticket;
