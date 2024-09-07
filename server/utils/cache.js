@@ -9,11 +9,14 @@ const myCache = new NodeCache({
 // 设置缓存
 var setCache = function (key, value) {
   // 设置缓存
-  myCache.set(key, value, function (err, success) {
+  let value = myCache.set(key, value, function (err, success) {
     if (!err && success) {
       console.log(key + "保存成功", value);
     }
   });
+  if (value) {
+    console.log(key + "保存成功", value);
+  }
 };
 
 // 获取缓存
@@ -35,6 +38,9 @@ var getCache = function (key, callback) {
   if (!value) {
     console.log(`${key} not found in node-cache`);
     callback();
+  } else {
+    console.log(`存在于缓存中${key}=${value}`);
+    callback(value);
   }
 };
 
