@@ -9,12 +9,12 @@ const myCache = new NodeCache({
 // 设置缓存
 var setCache = function (key, value) {
   // 设置缓存
-  let value = myCache.set(key, value, function (err, success) {
+  let isSuccess = myCache.set(key, value, function (err, success) {
     if (!err && success) {
       console.log(key + "保存成功", value);
     }
   });
-  if (value) {
+  if (isSuccess) {
     console.log(key + "保存成功", value);
   }
 };
