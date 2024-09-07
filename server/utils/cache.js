@@ -3,9 +3,8 @@
 const NodeCache = require("node-cache");
 const myCache = new NodeCache({
   stdTTL: 7200, // 缓存过期时间
-  checkperiod: 120 // 定期检查时间
+  checkperiod: 120, // 定期检查时间
 });
-
 
 // 设置缓存
 var setCache = function (key, value) {
@@ -20,7 +19,7 @@ var setCache = function (key, value) {
 // 获取缓存
 var getCache = function (key, callback) {
   // 读取缓存
-  myCache.get(key, function (err, value) {
+  let value = myCache.get(key, function (err, value) {
     if (!err) {
       if (value) {
         console.log(`存在于缓存中${key}=${value}`);
@@ -30,15 +29,16 @@ var getCache = function (key, callback) {
         callback();
       }
     } else {
-      console.log('get ' + key + ' cache occurs error =', err);
+      console.log("get " + key + " cache occurs error =", err);
     }
   });
+  if (!value) {
+    console.log(`${key} not found in node-cache`);
+    callback();
+  }
 };
-
-
 
 module.exports = {
   setCache,
-  getCache
-}
-
+  getCache,
+};
