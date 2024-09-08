@@ -1,7 +1,7 @@
 {
     "token": "lijiye",
-    "appid": "wxd1835fd3a94514d1",
-    "appsecret": "3c0a09e5c430b9477706fa0a27012f6a",
+    "appid": "wx11726e5f7fb5b21a",
+    "appsecret": "fb52eb2e821202f7427b6e735e95bef7",
     "getJsapiTicket": "https://api.weixin.qq.com/cgi-bin/ticket/getticket?type=jsapi&access_token=",
     "getAccessToken": "https://api.weixin.qq.com/cgi-bin/token"
 }
