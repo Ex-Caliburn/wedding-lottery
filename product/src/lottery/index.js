@@ -267,7 +267,8 @@ function bindEvent() {
           // 抽奖
           lottery();
         });
-        addQipao(`正在抽取[${currentPrize.title}],调整好姿势`);
+        addQipao(`正在抽取[${currentPrize.text}],调整好姿势`);
+        // addQipao(`正在抽取[${currentPrize.title}],调整好姿势`);
         break;
       // 重新抽奖
       case "reLottery":
