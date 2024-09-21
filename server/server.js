@@ -21,8 +21,8 @@ let app = express(),
   router = express.Router(),
   cwd = "/web/wedding-lottery/product/dist",
   // dataBath = __dirname,
-  dataBath = "/web/wedding-lottery/server",
-  // dataBath = "/Users/lijiye/work/lottery/lottery/server", // 本地 test
+  // dataBath = "/web/wedding-lottery/server",
+  dataBath = "/Users/lijiye/work/lottery/lottery/server", // 本地 test
   port = 8888,
   curData = {},
   luckyData = {},
@@ -285,7 +285,7 @@ function getLeftUsers() {
   curData.leftUsers = leftUsers;
 }
 
-// loadData();
+loadData();
 
 module.exports = {
   run: function (devPort, noOpen) {
