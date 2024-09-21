@@ -19,9 +19,11 @@ const {
 
 let app = express(),
   router = express.Router(),
-  cwd = "/web/wedding-lottery/product/dist",
-  // dataBath = __dirname,
-  dataBath = "/web/wedding-lottery/server",
+  cwd = process.cwd(),
+  dataBath = __dirname,
+
+  // cwd = "/web/wedding-lottery/product/dist",
+  // dataBath = "/web/wedding-lottery/server", // online
   // dataBath = "/Users/lijiye/work/lottery/lottery/server", // 本地 test
   port = 8888,
   curData = {},
