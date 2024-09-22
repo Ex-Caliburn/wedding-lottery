@@ -229,7 +229,7 @@ function bindEvent() {
       // 进入抽奖
       case "enter":
         removeHighlight();
-        addQipao(`马上抽取[${currentPrize.title}],不要走开。`);
+        addQipao(`马上抽取[${currentPrize.text}],不要走开。`);
         // rotate = !rotate;
         rotate = true;
         switchScreen("lottery");
@@ -262,6 +262,12 @@ function bindEvent() {
         // 每次抽奖前先保存上一次的抽奖数据
         saveData();
         //更新剩余抽奖数目的数据显示
+        console.log(currentPrize, EACH_COUNT[currentPrizeIndex]);
+        if (currentPrizeIndex === 0) {
+          addQipao(`当前奖品已抽完，现在重新设置所有人员可以进行二次抽奖！`);
+          return;
+        }
+
         changePrize();
         resetCard().then((res) => {
           // 抽奖
@@ -277,7 +283,7 @@ function bindEvent() {
           return;
         }
         setErrorData(currentLuckys);
-        addQipao(`重新抽取[${currentPrize.title}],做好准备`);
+        addQipao(`重新抽取[${currentPrize.text}],做好准备`);
         setLotteryStatus(true);
         // 重新抽奖则直接进行抽取，不对上一次的抽奖数据进行保存
         // 抽奖
@@ -351,7 +357,10 @@ function createCard(user, isBold, id, showTable) {
   element.appendChild(createElement("name", user[1]));
 
   element.appendChild(
-    createElement("details", user[0] || "" + "<br/>" + user[2] || "")
+    createElement(
+      "details",
+      user[0].toString().slice(-3) || "" + "<br/>" + user[2] || ""
+    )
   );
   return element;
 }
@@ -514,7 +523,7 @@ function selectCard(duration = 600) {
 
   let text = currentLuckys.map((item) => item[1]);
   addQipao(
-    `恭喜${text.join("、")}获得${currentPrize.title}, 新的一年必定旺旺旺。`
+    `恭喜${text.join("、")}获得${currentPrize.text}, 新的一年必定旺旺旺。`
   );
 
   selectedCardIndex.forEach((cardIndex, index) => {
@@ -625,6 +634,7 @@ function lottery() {
     currentLuckys = [];
     selectedCardIndex = [];
     // 当前同时抽取的数目,当前奖品抽完还可以继续抽，但是不记录数据
+
     let perCount = EACH_COUNT[currentPrizeIndex],
       luckyData = basicData.luckyUsers[currentPrize.type],
       leftCount = basicData.leftUsers.length,
@@ -712,7 +722,9 @@ function changeCard(cardIndex, user) {
 
   card.innerHTML = `<div class="company">${COMPANY}</div><div class="name">${
     user[1]
-  }</div><div class="details">${user[0] || ""}<br/>${user[2] || ""}</div>`;
+  }</div><div class="details">${user[0].toString().slice(-3) || ""}<br/>${
+    user[2] || ""
+  }</div>`;
 }
 
 /**

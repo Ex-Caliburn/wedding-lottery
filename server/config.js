@@ -9,7 +9,7 @@
 const prizes = [
   {
     type: 0,
-    count: 1000,
+    count: 0,
     title: "",
     text: "特别奖"
   },
@@ -23,7 +23,7 @@ const prizes = [
   {
     type: 2,
     count: 2,
-    text: "一等奖",
+    text: "一等奖 (1-2)",
     // title: "Mac Pro",
     title: "",
     img: "../img/huoguo.png",
@@ -31,7 +31,7 @@ const prizes = [
   {
     type: 3,
     count: 4,
-    text: "二等奖",
+    text: "二等奖 (3-6)",
     // title: "华为 Mate30",
     title: "",
     img: "../img/lingshi.png",
@@ -39,7 +39,7 @@ const prizes = [
   {
     type: 4,
     count: 6,
-    text: "三等奖",
+    text: "三等奖 (7-12)",
     title: "",
     // title: "Ipad Mini5",
     img: "../img/chufang.png",
@@ -47,7 +47,7 @@ const prizes = [
   {
     type: 5,
     count: 8,
-    text: "四等奖",
+    text: "四等奖 (13-20)",
     title: "",
     // title: "大疆无人机",
     img: "../img/shuiba.png",
@@ -73,7 +73,7 @@ const prizes = [
  * 一次抽取的奖品个数与prizes对应
  */
 // const EACH_COUNT = [1, 1, 5, 6, 7, 8, 9, 10];
-const EACH_COUNT = [1, 2, 4, 6, 8, 10];
+const EACH_COUNT = [0, 2, 4, 6, 8, 10];
 
 /**
  * 卡片公司名称标识
